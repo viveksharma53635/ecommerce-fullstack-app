@@ -16,6 +16,9 @@ function Navbar() {
           <Link className="btn btn-success" to="/add-product">
             Add Product
           </Link>
+          <a href="/cart" className="btn btn-outline-light ms-2">
+  Cart
+</a>
         </div>
       </div>
     </nav>

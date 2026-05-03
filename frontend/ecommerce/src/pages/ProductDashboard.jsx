@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProducts, deactivateProduct } from "../services/productService";
 import { useNavigate } from 'react-router-dom';
+import { addToCart } from "../services/cartService";
 function ProductDashboard() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
@@ -16,6 +17,16 @@ function ProductDashboard() {
     setProducts(res.data);
   }
 
+const handleAddToCart = async (productId) => {
+  const data = {
+    userId: 1,
+    productId: productId,
+    quantity: 1,
+  };
+
+  await addToCart(data);
+  alert("Added to cart");
+};
   const handleDeactivate = async (id) => {
     if (window.confirm("Deactivate this product?")) {
       await deactivateProduct(id);
@@ -58,6 +69,12 @@ function ProductDashboard() {
                 >
                   Deactivate
                 </button>
+                <button
+  className="btn btn-success"
+  onClick={() => handleAddToCart(p.productId)}
+>
+  Add to Cart
+</button>
               </td>
             </tr>
           ))}
