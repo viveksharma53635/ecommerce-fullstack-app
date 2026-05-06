@@ -20,7 +20,7 @@ function Navbar() {
   Cart
 </a>
 <a href="/customers" className="btn btn-light">Customers</a>
-<a href="/add-customer" className="btn btn-success">Add Customer</a>
+
 <a href="/register" className="btn btn-primary">
   Register
 </a>

@@ -11,6 +11,8 @@ import CartPage from './pages/CartPage';
 import CustomerDashboard from './pages/CustomerDashboard';
 import AddCustomer from './pages/AddCustomer';
 import Register from './pages/Register';
+import OrderHistory from './pages/OrderHistory';
+import AccountSettings from './pages/AccountSettings';
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
         <Route path="/customers" element={<CustomerDashboard />} />
         <Route path="/add-customer" element={<AddCustomer />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/order-history" element={<OrderHistory/>} />
+
+<Route path="/account-settings" element={<AccountSettings />} />
       </Routes>
     </BrowserRouter>
   );

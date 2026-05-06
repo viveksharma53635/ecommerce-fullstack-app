@@ -15,3 +15,6 @@ export const updateOrderStatus = (id, status) =>
 // Cancel Order
 export const cancelOrder = (id) =>
   apiClient.patch(`/orders/${id}/cancel`);
+
+export const getCustomerOrders = (customerId) =>
+  apiClient.get(`/orders/customer/${customerId}`);

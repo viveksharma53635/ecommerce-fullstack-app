@@ -138,4 +138,7 @@ public class OrderService {
 	public void setUserRepository(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
+	public List<Order> getCustomerOrders(Long customerId) {
+	    return repo.findByCustomerId(customerId);
+	}
 }

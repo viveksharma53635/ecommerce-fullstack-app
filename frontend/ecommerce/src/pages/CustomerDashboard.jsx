@@ -23,6 +23,7 @@ function CustomerDashboard() {
   return (
     <div className="container mt-4">
       <h2>Customer Dashboard</h2>
+      <a href="/add-customer" className="btn btn-success">Add Customer</a>
 
       <table className="table table-bordered mt-3">
         <thead>

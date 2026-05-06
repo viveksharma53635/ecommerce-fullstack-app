@@ -53,4 +53,8 @@ public class OrderController {
     public List<Order> getByStatus(@RequestParam String status) {
         return service.getByStatus(status);
     }
+    @GetMapping("/customer/{customerId}")
+    public List<Order> getCustomerOrders(@PathVariable Long customerId) {
+        return service.getCustomerOrders(customerId);
+    }
 }

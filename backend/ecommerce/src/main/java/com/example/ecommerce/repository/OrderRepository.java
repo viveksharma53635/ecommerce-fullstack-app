@@ -9,4 +9,6 @@ import com.example.ecommerce.entity.Order;
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
 	List<Order> findByOrderStatus(String status);
+
+	List<Order> findByCustomerId(Long customerId);
 }
