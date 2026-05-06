@@ -88,7 +88,7 @@ public class OrderService {
             // 🔥 Fetch name from users table
             if (order.getCustomerId() != null) {
                 User user = userRepository.findById(order.getCustomerId()).orElse(null);
-                map.put("customerName", user != null ? user.getName() : "Unknown");
+                map.put("customerName", user != null ? user.getFirstName() + user.getLastName(): "Unknown");
             } else {
                 map.put("customerName", "Unknown");
             }
