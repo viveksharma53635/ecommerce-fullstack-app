@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { getCart } from "../services/cartService";
+import { useNavigate } from "react-router-dom";
 
 function CartPage() {
   const [cart, setCart] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchCart();
@@ -12,6 +14,7 @@ function CartPage() {
     const res = await getCart(1);
     setCart(res.data);
   };
+  
 
   return (
     <div className="container mt-4">
@@ -36,7 +39,19 @@ function CartPage() {
           ))}
         </tbody>
       </table>
+      
+      <div className="mt-3">
+
+  <button
+    className="btn btn-success"
+    onClick={() => navigate("/add-order")}
+  >
+    Proceed to Checkout
+  </button>
+
+</div>
     </div>
+    
   );
 }
 

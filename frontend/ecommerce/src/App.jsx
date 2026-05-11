@@ -13,6 +13,8 @@ import AddCustomer from './pages/AddCustomer';
 import Register from './pages/Register';
 import OrderHistory from './pages/OrderHistory';
 import AccountSettings from './pages/AccountSettings';
+import PaymentPage from './pages/PaymentPage';
+import PaymentDashboard from './pages/PaymentDashboard';
 
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
         <Route path="/order-history" element={<OrderHistory/>} />
 
 <Route path="/account-settings" element={<AccountSettings />} />
+<Route path="/payment" element={<PaymentPage />} />
+
+<Route path="/payments" element={<PaymentDashboard />} />
       </Routes>
     </BrowserRouter>
   );

@@ -17,9 +17,6 @@ public class UserService {
 
     // Add Customer
     public User create(User user) {
-        user.setCreatedAt(LocalDateTime.now());
-        user.setUpdatedAt(LocalDateTime.now());
-        user.setStatus(true);
         return repo.save(user);
     }
 

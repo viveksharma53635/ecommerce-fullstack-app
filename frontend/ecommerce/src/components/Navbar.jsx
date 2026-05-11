@@ -2,30 +2,82 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
+
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+
       <div className="container">
-        <Link className="navbar-brand" to="/products">
+
+        {/* Logo */}
+        <Link
+          className="navbar-brand"
+          to="/products"
+        >
           Ecommerce Admin
         </Link>
 
+        {/* Navigation Buttons */}
         <div>
-          <Link className="btn btn-light me-2" to="/products">
+
+          {/* Products */}
+          <Link
+            className="btn btn-light me-2"
+            to="/products"
+          >
             Products
           </Link>
 
-          <Link className="btn btn-success" to="/add-product">
+          {/* Add Product */}
+          <Link
+            className="btn btn-success me-2"
+            to="/add-product"
+          >
             Add Product
           </Link>
-          <a href="/cart" className="btn btn-outline-light ms-2">
-  Cart
-</a>
-<a href="/customers" className="btn btn-light">Customers</a>
 
-<a href="/register" className="btn btn-primary">
-  Register
-</a>
+          {/* Cart */}
+          <Link
+            className="btn btn-outline-light me-2"
+            to="/cart"
+          >
+            Cart
+          </Link>
+
+          {/* Orders */}
+          <Link
+            className="btn btn-warning me-2"
+            to="/orders"
+          >
+            Orders
+          </Link>
+
+          {/* Payments */}
+          <Link
+            className="btn btn-info me-2"
+            to="/payments"
+          >
+            Payments
+          </Link>
+
+          {/* Customers */}
+          <Link
+            className="btn btn-light me-2"
+            to="/customers"
+          >
+            Customers
+          </Link>
+
+          {/* Register */}
+          <Link
+            className="btn btn-primary"
+            to="/register"
+          >
+            Register
+          </Link>
+
         </div>
+
       </div>
+
     </nav>
   );
 }

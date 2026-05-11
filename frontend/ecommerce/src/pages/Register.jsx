@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createUser } from "../services/userService";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [user, setUser] = useState({
@@ -12,13 +13,14 @@ function Register() {
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-
+const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await createUser(user);
     alert("Registration Successful");
 
+navigate("/products");
     setUser({
       firstName: "",
       lastName: "",

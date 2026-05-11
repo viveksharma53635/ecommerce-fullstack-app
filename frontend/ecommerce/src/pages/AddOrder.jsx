@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { placeOrder } from "../services/orderService";
+import { useNavigate } from "react-router-dom";
 
 function AddOrder() {
   const [order, setOrder] = useState({
@@ -11,22 +12,33 @@ function AddOrder() {
     setOrder({ ...order, [e.target.name]: e.target.value });
   };
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    const orderData = {
-      customerId: Number(order.customerId),
-      shippingAddress: order.shippingAddress,
-    };
+  e.preventDefault();
 
-    await placeOrder(orderData);
-    alert("Order Placed");
-
-    setOrder({
-      customerId: "",
-      shippingAddress: "",
-    });
+  const orderData = {
+    customerId: Number(order.customerId),
+    shippingAddress: order.shippingAddress,
   };
+
+  const res = await placeOrder(orderData);
+
+  alert("Order Placed");
+
+  navigate("/payment", {
+    state: {
+      orderId: res.data.userId,
+      amount: res.data.totalAmount,
+    },
+  });
+
+  setOrder({
+    customerId: "",
+    shippingAddress: "",
+  });
+};
+
 
   return (
     <div className="container mt-5">
