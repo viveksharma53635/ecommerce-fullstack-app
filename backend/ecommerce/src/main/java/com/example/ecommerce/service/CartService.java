@@ -1,5 +1,7 @@
 package com.example.ecommerce.service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,8 +24,66 @@ public class CartService {
     private CartRepository repo;
 
     public Cart addToCart(Cart cart) {
+
+        // Find Product
+        Product product = productRepository
+                .findById(cart.getProductId())
+                .orElseThrow();
+
+        // Stock Validation
+        if (cart.getQuantity() > product.getInventoryCount()) {
+            throw new RuntimeException("Not enough stock");
+        }
+
+        // Calculate Total Price
+        BigDecimal total = product.getPrice().multiply(
+                BigDecimal.valueOf(cart.getQuantity())
+        );
+
+        cart.setTotalPrice(total);
+
+        // Timestamps
+        cart.setCreatedAt(LocalDateTime.now());
+        cart.setUpdatedAt(LocalDateTime.now());
+
         return repo.save(cart);
     }
+    public Cart updateCart(Long id, Integer quantity) {
+
+        Cart cart = repo.findById(id).orElseThrow();
+
+        Product product = productRepository
+                .findById(cart.getProductId())
+                .orElseThrow();
+
+        // Stock Validation
+        if (quantity > product.getInventoryCount()) {
+            throw new RuntimeException("Not enough stock");
+        }
+
+        // Update Quantity
+        cart.setQuantity(quantity);
+
+        // Recalculate Total Price
+        BigDecimal total = product.getPrice().multiply(
+                BigDecimal.valueOf(quantity)
+        );
+
+        cart.setTotalPrice(total);
+
+        // Update Timestamp
+        cart.setUpdatedAt(LocalDateTime.now());
+
+        return repo.save(cart);
+    }
+    
+    public void removeCartItem(Long id) {
+
+        Cart cart = repo.findById(id).orElseThrow();
+
+        repo.delete(cart);
+    }
+    
 
     public List<Map<String, Object>> getUserCart(Long userId) {
 
@@ -41,6 +101,7 @@ public class CartService {
             map.put("productName", product != null ? product.getProductName() : "Unknown");
             map.put("quantity", item.getQuantity());
             map.put("price", product != null ? product.getPrice() : 0);
+            map.put("totalPrice", item.getTotalPrice());
 
             result.add(map);
         }

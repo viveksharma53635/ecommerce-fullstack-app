@@ -1,5 +1,8 @@
 package com.example.ecommerce.entity;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +20,11 @@ public class Cart {
     private Long userId;
     private Long productId;
     private Integer quantity;
+    private BigDecimal totalPrice;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 	public Long getCartId() {
 		return cartId;
 	}
@@ -41,6 +49,25 @@ public class Cart {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
+	public BigDecimal getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(BigDecimal totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	
 
     // getters & setters
     
