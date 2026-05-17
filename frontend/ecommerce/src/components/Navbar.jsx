@@ -42,6 +42,13 @@ function Navbar() {
             Cart
           </Link>
 
+          <Link
+            className="btn btn-outline-warning me-2"
+            to="/wishlist"
+          >
+            Wishlist
+          </Link>
+
           {/* Orders */}
           <Link
             className="btn btn-warning me-2"

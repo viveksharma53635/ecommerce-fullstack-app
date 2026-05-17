@@ -28,8 +28,9 @@ function AddCustomer() {
 
   return (
     <div className="container mt-4">
-      <h2>Add Customer</h2>
-
+      <h2 className="fw-bold mb-4">
+        Add Customer
+      </h2>
       <form onSubmit={handleSubmit}>
         <input name="firstName" placeholder="First Name" className="form-control mb-2" onChange={handleChange} />
         <input name="lastName" placeholder="Last Name" className="form-control mb-2" onChange={handleChange} />

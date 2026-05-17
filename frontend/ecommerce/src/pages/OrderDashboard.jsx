@@ -40,9 +40,10 @@ function OrderDashboard() {
 
 
     <div className="container mt-2">
-      <h2>Order Dashboard</h2>
-
-      <div className="container mt-3">
+      <h2 className="fw-bold mb-4">
+  Order Dashboard
+</h2>
+    <div className="container mt-3">
         <div className="row">
           <div className="col-6 col-sm-4">
             <select

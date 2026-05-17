@@ -49,9 +49,9 @@ function CartPage() {
 
   return (
     <div className="container mt-4">
-
-      <h2 className="mb-3">My Cart</h2>
-
+      <h2 className="fw-bold mb-4">
+        My Cart
+      </h2>
       <table className="table table-striped shadow">
 
         <thead className="table-dark">

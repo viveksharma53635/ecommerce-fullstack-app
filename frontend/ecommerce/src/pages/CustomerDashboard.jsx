@@ -22,7 +22,10 @@ function CustomerDashboard() {
 
   return (
     <div className="container mt-4">
-      <h2>Customer Dashboard</h2>
+      <h2 className="fw-bold mb-4">
+  Customer Dashboard
+</h2>
+     
       <a href="/add-customer" className="btn btn-success">Add Customer</a>
 
       <table className="table table-bordered mt-3">

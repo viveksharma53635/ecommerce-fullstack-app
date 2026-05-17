@@ -15,6 +15,7 @@ import OrderHistory from './pages/OrderHistory';
 import AccountSettings from './pages/AccountSettings';
 import PaymentPage from './pages/PaymentPage';
 import PaymentDashboard from './pages/PaymentDashboard';
+import Wishlist from './pages/Wishlist';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
 <Route path="/payment" element={<PaymentPage />} />
 
 <Route path="/payments" element={<PaymentDashboard />} />
+<Route path="/wishlist" element={<Wishlist/>} />
       </Routes>
     </BrowserRouter>
   );

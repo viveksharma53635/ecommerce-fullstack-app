@@ -34,7 +34,10 @@ function EditProduct() {
 
   return (
     <div className="container mt-4">
-      <h2>Edit Product</h2>
+      <h2 className="fw-bold mb-4">
+  Edit Product
+</h2>
+     
 
       <form onSubmit={handleSubmit}>
         <input name="productName" value={product.productName} onChange={handleChange} className="form-control mb-2" />

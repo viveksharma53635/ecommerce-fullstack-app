@@ -15,36 +15,37 @@ function AddOrder() {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
 
-  e.preventDefault();
+    e.preventDefault();
 
-  const orderData = {
-    customerId: Number(order.customerId),
-    shippingAddress: order.shippingAddress,
+    const orderData = {
+      customerId: Number(order.customerId),
+      shippingAddress: order.shippingAddress,
+    };
+
+    const res = await placeOrder(orderData);
+
+    alert("Order Placed");
+
+    navigate("/payment", {
+      state: {
+        orderId: res.data.userId,
+        amount: res.data.totalAmount,
+      },
+    });
+
+    setOrder({
+      customerId: "",
+      shippingAddress: "",
+    });
   };
-
-  const res = await placeOrder(orderData);
-
-  alert("Order Placed");
-
-  navigate("/payment", {
-    state: {
-      orderId: res.data.userId,
-      amount: res.data.totalAmount,
-    },
-  });
-
-  setOrder({
-    customerId: "",
-    shippingAddress: "",
-  });
-};
 
 
   return (
     <div className="container mt-5">
       <div className="card p-4">
-        <h3>Place Order</h3>
-
+        <h2 className="fw-bold mb-4">
+          Place Order
+        </h2>
         <form onSubmit={handleSubmit}>
           <input
             name="customerId"
