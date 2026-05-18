@@ -25,6 +25,7 @@ public class Payment {
 
     private LocalDateTime updatedAt;
 
+    
     // Default Constructor
     public Payment() {
     }

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getOrders, updateOrderStatus, cancelOrder } from "../services/orderService";
 import apiClient from "../services/apiClient";
-import { useNavigate } from "react-router-dom";
+
 function OrderDashboard() {
   const [orders, setOrders] = useState([]);
-  const navigate = useNavigate();
+  
 
   useEffect(() => {
     fetchOrders();
@@ -35,7 +35,7 @@ function OrderDashboard() {
     }
   };
 
-  navigate("/payments");
+ 
   return (
 
 

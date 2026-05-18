@@ -16,6 +16,8 @@ import AccountSettings from './pages/AccountSettings';
 import PaymentPage from './pages/PaymentPage';
 import PaymentDashboard from './pages/PaymentDashboard';
 import Wishlist from './pages/Wishlist';
+import ShippingDashboard from './pages/ShippingDashboard';
+import TrackShipment from './pages/TrackShipment';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
 
 <Route path="/payments" element={<PaymentDashboard />} />
 <Route path="/wishlist" element={<Wishlist/>} />
+<Route path="/shipping" element={<ShippingDashboard/>} />
+<Route path="/track-shipment" element={<TrackShipment />} />
       </Routes>
     </BrowserRouter>
   );

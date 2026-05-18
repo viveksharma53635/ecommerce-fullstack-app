@@ -81,6 +81,19 @@ function Navbar() {
             Register
           </Link>
 
+          <Link
+            className="btn btn-outline-info me-2"
+            to="/shipping"
+          >
+            Shipping
+          </Link>
+          <Link
+            className="btn btn-outline-light me-2"
+            to="/track-shipment"
+          >
+            Track Shipment
+          </Link>
+
         </div>
 
       </div>

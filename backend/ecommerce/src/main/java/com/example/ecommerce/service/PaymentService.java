@@ -7,26 +7,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.ecommerce.entity.Payment;
+import com.example.ecommerce.entity.Shipping;
 import com.example.ecommerce.repository.PaymentRepository;
+import com.example.ecommerce.repository.ShippingRepository;
 
 @Service
 public class PaymentService {
 
     @Autowired
     private PaymentRepository repo;
+    @Autowired
+    private ShippingRepository shippingRepository;
 
     // Process Payment
     public Payment processPayment(Payment payment) {
 
         payment.setCreatedAt(LocalDateTime.now());
+
         payment.setUpdatedAt(LocalDateTime.now());
 
-        // Default status
+        // Default payment status
         payment.setPaymentStatus("Paid");
 
-        return repo.save(payment);
-    }
+        // Save payment first
+        Payment savedPayment = repo.save(payment);
 
+        // Create shipping automatically
+        Shipping shipping = new Shipping();
+
+        shipping.setOrderId(
+                payment.getOrderId()
+        );
+
+        shipping.setCourierService(
+                "Delhivery"
+        );
+
+        shippingRepository.save(shipping);
+
+        // Return saved payment
+        return savedPayment;
+    }
     // Get All Payments
     public List<Payment> getAllPayments() {
         return repo.findAll();
@@ -42,4 +63,6 @@ public class PaymentService {
 
         return repo.save(payment);
     }
+    
+    
 }
