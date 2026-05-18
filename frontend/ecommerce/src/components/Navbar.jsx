@@ -93,6 +93,18 @@ function Navbar() {
           >
             Track Shipment
           </Link>
+          <Link
+            className="btn btn-outline-secondary me-2"
+            to="/reviews"
+          >
+            Reviews
+          </Link>
+          <Link
+  className="btn btn-outline-danger me-2"
+  to="/review-dashboard"
+>
+  Review Admin
+</Link>
 
         </div>
 

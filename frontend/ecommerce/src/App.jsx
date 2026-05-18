@@ -18,6 +18,8 @@ import PaymentDashboard from './pages/PaymentDashboard';
 import Wishlist from './pages/Wishlist';
 import ShippingDashboard from './pages/ShippingDashboard';
 import TrackShipment from './pages/TrackShipment';
+import ProductReviews from './pages/ProductReviews';
+import ReviewDashboard from './pages/ReviewDashboard';
 
 function App() {
   return (
@@ -35,14 +37,14 @@ function App() {
         <Route path="/add-customer" element={<AddCustomer />} />
         <Route path="/register" element={<Register />} />
         <Route path="/order-history" element={<OrderHistory/>} />
-
-<Route path="/account-settings" element={<AccountSettings />} />
-<Route path="/payment" element={<PaymentPage />} />
-
-<Route path="/payments" element={<PaymentDashboard />} />
-<Route path="/wishlist" element={<Wishlist/>} />
-<Route path="/shipping" element={<ShippingDashboard/>} />
-<Route path="/track-shipment" element={<TrackShipment />} />
+        <Route path="/account-settings" element={<AccountSettings />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/payments" element={<PaymentDashboard />} />
+        <Route path="/wishlist" element={<Wishlist/>} />
+        <Route path="/shipping" element={<ShippingDashboard/>} />
+        <Route path="/track-shipment" element={<TrackShipment />} />
+        <Route path="/reviews" element={<ProductReviews />} />
+        <Route path="/review-dashboard" element={<ReviewDashboard />} />
       </Routes>
     </BrowserRouter>
   );
